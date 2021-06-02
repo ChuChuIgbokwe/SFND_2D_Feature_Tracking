@@ -62,6 +62,10 @@ int main(int argc, const char *argv[])
         // push image into data frame buffer
         DataFrame frame;
         frame.cameraImg = imgGray;
+        if (dataBuffer.size() + 1 > dataBufferSize){
+            dataBuffer.erase(dataBuffer.begin());
+            std::cout<<"replaced last image in the buffer"<<std::endl;
+        }
         dataBuffer.push_back(frame);
 
         //// EOF STUDENT ASSIGNMENT
